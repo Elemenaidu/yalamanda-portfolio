@@ -7,13 +7,44 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes rotateY360 {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #7f00ff; }
+      50% { box-shadow: 0 0 20px #e100ff; }
+      100% { box-shadow: 0 0 5px #7f00ff; }
+    }
+    .glow-border {
+      border: 3px solid #fff;
+      border-radius: 8px;
+      animation: glow 2s infinite;
+    }
+  </style>
+  <script>
+    let text = "Hi, I'm Yalamanda Madasu";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 100);
+      }
+    }
+    window.onload = type;
+
+    function toggleCard(card) {
+      card.classList.toggle("flipped");
+    }
+  </script>
 </head>
 <body>
-  <!-- Hero Section -->
   <section class="hero">
-    <h1>✨ Welcome to My Magical Portfolio ✨</h1>
-    <p>Hi, I'm <strong>Yalamanda Madasu</strong></p>
+    <h1 id="typewriter"></h1>
     <p>AWS Certified | Developer | Tech Mahindra</p>
+    <button onclick="document.body.classList.toggle('dark')">🌙 Toggle Mode</button>
   </section>
 
   <!-- About Section -->
@@ -21,11 +52,55 @@
     <div class="text">
       <h2>About Me</h2>
       <p>
-        I’m a passionate IT professional with 3.5+ years of experience in application support and development. Currently working at Tech Mahindra on SCM projects for Nissan North America. Strong in Java, Spring Boot, REST APIs, and AWS Cloud. I love solving real-world problems with scalable web solutions.
+        I’m a passionate IT professional with 3.5+ years of experience in application support and development.
+        Currently working at Tech Mahindra on SCM projects for Nissan North America.
+        Strong in Java, Spring Boot, REST APIs, and AWS Cloud. I love solving real-world problems with scalable web solutions.
       </p>
     </div>
     <div class="image">
-      <img src="images/profile.jpg" alt="Profile Photo" />
+      <img src="images/profile.jpg" alt="Profile Photo" class="glow-border" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; animation: rotateY360 10s linear infinite;" />
+    </div>
+  </section>
+
+  <!-- Project Gallery -->
+  <section class="section">
+    <h2>📁 Project Gallery</h2>
+    <div class="project-gallery centered">
+      <div class="project-card glass-card" onclick="toggleCard(this)">
+        <div class="card-front">
+          <img src="images/project1.jpg" alt="SCM POPS" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; animation: rotateY360 5s linear infinite;">
+          <h3>SCM POPS</h3>
+          <p>Click to read more</p>
+        </div>
+        <div class="card-back">
+          <p>Automation scripts and backend for SCM with Node.js + AWS. Built reliable pipelines for cloud migration and supported real-time dashboards.</p>
+          <a href="#">View Code</a>
+        </div>
+      </div>
+
+      <div class="project-card glass-card" onclick="toggleCard(this)">
+        <div class="card-front">
+          <img src="images/project2.jpg" alt="WMS-YMS" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; animation: rotateY360 5s linear infinite;">
+          <h3>WMS-YMS</h3>
+          <p>Click to read more</p>
+        </div>
+        <div class="card-back">
+          <p>Spring Boot APIs for warehouse container tracking and monitoring system integrated with yard logistics and RFID tech.</p>
+          <a href="#">View Code</a>
+        </div>
+      </div>
+
+      <div class="project-card glass-card" onclick="toggleCard(this)">
+        <div class="card-front">
+          <img src="images/project3.jpg" alt="CMS" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; animation: rotateY360 5s linear infinite;">
+          <h3>CMS</h3>
+          <p>Click to read more</p>
+        </div>
+        <div class="card-back">
+          <p>Spring Boot & PostgreSQL backend for container dispatch, including driver login, supplier schedules, and route APIs.</p>
+          <a href="#">View Code</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -49,37 +124,25 @@
     </ul>
   </section>
 
-  <!-- Projects -->
-  <section class="section">
-    <h2>📁 Projects</h2>
-    <div class="project">
-      <h3>SCM POPS</h3>
-      <p>Built backend and automation scripts for SCM systems using Node.js and Shell. Supported cloud migration and incident management on AWS.</p>
-    </div>
-    <div class="project">
-      <h3>WMS-YMS (Warehouse Management System)</h3>
-      <p>Created Spring Boot APIs to track shipments and containers with real-time yard updates, arrival/departure times, and route information.</p>
-    </div>
-    <div class="project">
-      <h3>CMS (Container Management System)</h3>
-      <p>Built backend systems to manage container receiving and dispatch using PostgreSQL and Spring Boot. Developed APIs for routes, suppliers, and driver workflows.</p>
-    </div>
-  </section>
-
   <!-- Education -->
   <section class="section">
     <h2>🎓 Education</h2>
-    <p>B.Tech in Electrical and Electronics Engineering<br />QIS College of Engineering and Technology, Andhra Pradesh (2016 – 2020)</p>
+    <p>
+      B.Tech in Electrical and Electronics Engineering<br />
+      QIS College of Engineering and Technology, Andhra Pradesh (2016 – 2020)
+    </p>
   </section>
 
   <!-- Contact -->
   <section class="section">
     <h2>📞 Contact</h2>
-    <p><i class="fas fa-envelope"></i> yalamandamadasu0507@gmail.com</p>
+    <p><i class="fas fa-file-alt"></i> <a href="resume/Yalamanda-Madasu-Resume.pdf" target="_blank">Download My Resume</a></p>
+    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/yalamanda-madasu" target="_blank">linkedin.com/in/yalamanda-madasu</a></p>
     <p><i class="fas fa-phone"></i> +91 6303482359</p>
     <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>Made with ❤️ by Yalamanda Madasu</p>
   </footer>
