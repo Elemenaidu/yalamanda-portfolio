@@ -1,0 +1,90 @@
+/* Reset & Font */
+body {
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
+  background: #fefefe;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.hero h1 {
+  font-size: 2.8rem;
+  margin: 0 0 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Section Styling */
+.section {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.section h2 {
+  font-size: 2rem;
+  color: #7f00ff;
+  margin-bottom: 1rem;
+}
+.section ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+.section ul li::before {
+  content: '✨ ';
+}
+
+/* Two-Column About Section */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+.about .text {
+  flex: 1 1 60%;
+}
+.about .image {
+  flex: 1 1 35%;
+  text-align: center;
+}
+.about .image img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: glow 3s infinite alternate;
+}
+
+/* Project Cards */
+.project {
+  background: #fafafa;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #e100ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.project h3 {
+  margin: 0 0 0.5rem;
+  color: #444;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
